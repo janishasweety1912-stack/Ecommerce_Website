@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexivo - Simple E-Commerce Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="offer-bar">
+        🔥 Summer Sale is Live | Up to 50% OFF on Fashion
+    </div>
+
+    <header>
+
+        <div class="container">
+
+            <nav>
+
+                <div class="logo">
+                    <img src="img/logo.PNG" alt="logo">
+                </div>
+
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search products..." />
+                    <button type="button" id="searchBtn">Search</button>
+                    <p id="no-products-message">No products found</p>
+                </div>
+
+                <ul class="nav-menu">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#new-arrivals">New Arrivals</a></li>
+                    <li><a href="#newsletter">Newsletter</a></li>
+                    <li><a href="#login">Log in</a></li>
+                </ul>
+
+                <div class="header-icons">
+                    <button class="icon-btn" id="wishlist-header-btn" aria-label="Wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                        <span id="wishlist-count">0</span>
+                    </button>
+                    <button class="icon-btn" aria-label="cart-btn">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span id="cart-count">0</span>
+                    </button>
+                    <button class="icon-btn" aria-label="Profile">
+                        <i class="fa-regular fa-user"></i>
+                    </button>
+                    <button class="icon-btn" id="dark-mode-toggle">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                </div>
+
+                <div class="hamburger" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+            </nav>
+
+        </div>
+
+        <div id="wishlist-popup">
+            <h3>My Wishlist</h3>
+            <ul id="wishlist-items"></ul>
+        </div>
+
+        <div id="toast-message"></div>
+
+    </header>
+    
+    <section id="hero">
+
+        <div class="container">
+
+            <h1>Welcome to Nexivo</h1>
+            <p>Discover the latest here with unbeatable deals and quality products.</p>
+            <a href="#products" class="btn">Shop Now</a>
+        </div>
+
+    </section>
+
+    <section id="features">
+
+        <div class="container">
+
+            <h2>Why Choose Nexivo?</h2>
+
+            <div class="features-grid">
+
+                <div class="feature">
+                    <i class="fa-solid fa-star"></i>
+                    <h3>High Quality</h3>
+                    <p>Premium products curated for you.</p>
+                </div>
+
+                <div class="feature">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <h3>Fast Shipping</h3>
+                    <p>Quick delivery to your doorstep.</p>
+                </div>
+
+                <div class="feature">
+                    <i class="fa-solid fa-clock"></i>
+                    <h3>24/7 Support</h3>
+                    <p>We're here to help anytime.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="products">
+
+        <div class="container">
+
+            <h2>Products</h2>
+            <div class="product-categories">
+                <button class="category-btn active" data-category="all">All</button>
+                <button class="category-btn" data-category="mens-fashion">Mens Fashion</button>
+                <button class="category-btn" data-category="womens-fashion">Womens Fashion</button>
+                <button class="category-btn" data-category="kids-fashion">Kids Fashion</button>
+                <button class="category-btn" data-category="accessories">Accessories</button>
+                <button class="category-btn" data-category="footwear">Footwears</button>
+                <button class="category-btn" data-category="mobiles">Mobiles</button>
+                <button class="category-btn" data-category="electronics">Electronics</button>
+                <button class="category-btn" data-category="appliances">Appliances</button>
+            </div>
+
+            <div class="products-grid">
+
+                <div class="product" data-category="mens-fashion">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/Mens T-Shirt.jpeg" alt="Product 1">
+                    <h3>T-Shirt</h3>
+                    <p class="price">₹.500</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('T-Shirt')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="mens-fashion">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/Mens formal shirt.webp" alt="Product 2">
+                    <h3>Formal Shirt</h3>
+                    <p class="price">₹.700</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Formal Shirt')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="mens-fashion">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/Mens jeans.webp" alt="Product 3">
+                    <h3>Jeans</h3>
+                    <p class="price">₹.1500</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Jeans')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="mens-fashion">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/Mens Jacket.webp" alt="Product 4">
+                    <h3>Jacket</h3>
+                    <p class="price">₹.3500</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Jacket')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="womens-fashion">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/Womens kurtis.webp" alt="Product 5">
+                    <h3>Kurtis</h3>
+                    <p class="price">₹.1000</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Kurtis')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="womens-fashion">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/Womens top.webp" alt="Product 6">
+                    <h3>Top</h3>
+                    <p class="price">₹.700</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Top')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="womens-fashion">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/Womens jeans.webp" alt="Product 7">
+                    <h3>Jeans</h3>
+                    <p class="price">₹.1500</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Jeans')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="womens-fashion">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/Womens gown.jpg" alt="Product 8">
+                    <h3>Gown</h3>
+                    <p class="price">₹.3500</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Gown')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="kids-fashion">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/Kids t shirt.webp" alt="Product 9">
+                    <h3>Kids T-Shirt</h3>
+                    <p class="price">₹.900</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn"onclick="addToCart('Kids T-Shirt')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="kids-fashion">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/kids dress.webp" alt="Product 10">
+                    <h3>Kids Dress</h3>
+                    <p class="price">₹.4700</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Kids Dress')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="kids-fashion">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/kids pants.webp" alt="Product 11">
+                    <h3>Kids Pants</h3>
+                    <p class="price">₹.1500</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Kids Pants')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="kids-fashion">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/kids jacket.webp" alt="Product 12">
+                    <h3>Kids Jacket</h3>
+                    <p class="price">₹.3500</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Kids Jacket')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="accessories">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/chain.jpg" alt="Product 13">
+                    <h3>Chain</h3>
+                    <p class="price">₹900</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Chain')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="accessories">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/bangles.jpg" alt="Product 14">
+                    <h3>Bangles</h3>
+                    <p class="price">₹1,200</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Bangles')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="accessories">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/ring.webp" alt="Product 15">
+                    <h3>Ring</h3>
+                    <p class="price">₹700</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Ring')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="accessories">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/bracelets.jpg" alt="Product 16">
+                    <h3>Bracelet</h3>
+                    <p class="price">₹1,100</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Bracelet')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="footwear">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/shoes.jpg" alt="Product 17">
+                    <h3>Shoes</h3>
+                    <p class="price">₹2,499</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Shoes')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="footwear">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/heels.jpg" alt="Product 18">
+                    <h3>Heels</h3>
+                    <p class="price">₹1,999</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Heels')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="footwear">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/sandal.jpg" alt="Product 19">
+                    <h3>Sandals</h3>
+                    <p class="price">₹799</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Sandals')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="footwear">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/sneakers.jpg" alt="Product 20">
+                    <h3>Sneakers</h3>
+                    <p class="price">₹3,299</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Sneakers')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="mobiles">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/iphone15.jpg" alt="Product 21">
+                    <h3>iPhone 15</h3>
+                    <p class="price">₹79,999</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('iPhone 15')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="mobiles">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/samsung.jpg" alt="Product 22">
+                    <h3>Samsung Galaxy</h3>
+                    <p class="price">₹69,999</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Samsung Galaxy')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="mobiles">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/oneplus12.jpg" alt="Product 23">
+                    <h3>OnePlus 12</h3>
+                    <p class="price">₹64,999</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('OnePlus 12')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="mobiles">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/xiaomi.jpg" alt="Product 24">
+                    <h3>Xiaomi</h3>
+                    <p class="price">₹29,999</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Xiaomi')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="electronics">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/laptop.jpg" alt="Product 25">
+                    <h3>Laptop</h3>
+                    <p class="price">₹55,000</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Laptop')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="electronics">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/headphone.jpg" alt="Product 26">
+                    <h3>Headphones</h3>
+                    <p class="price">₹2,999</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Headphones')">Add to Cart</button>
+                </div>
+                    
+                <div class="product" data-category="electronics">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/smartwatch.jpg" alt="Product 27">
+                    <h3>Smart Watch</h3>
+                    <p class="price">₹4,999</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Smart Watch')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="electronics">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/camera.jpg" alt="Product 28">
+                    <h3>Camera</h3>
+                    <p class="price">₹38,000</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Camera')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="appliances">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/washingmachine.jpg" alt="Product 29">
+                    <h3>Washing Machine</h3>
+                    <p class="price">₹25,000</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Washing Machine')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="appliances">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/refrigerator.jpg" alt="Product 30">
+                    <h3>Refrigerator</h3>
+                    <p class="price">₹30,000</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Refrigerator')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="appliances">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/microwave.jpg" alt="Product 31">
+                    <h3>Microwave</h3>
+                    <p class="price">₹12,000</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Microwave')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="appliances">
+                    <button class="wishlist-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <img src="img/airconditioner.jpg" alt="Product 32">
+                    <h3>Air Conditioner</h3>
+                    <p class="price">₹45,000</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn" onclick="addToCart('Air Conditioner')">Add to Cart</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="new-arrivals">
+
+        <div class="container">
+            <h2>New Arrivals</h2>
+
+            <div class="products-grid">
+
+                <div class="product">
+                    <span class="discount-badge">40% OFF</span>
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=250&h=200&fit=crop" alt="New Product 1">
+                    <h3>Sneakers</h3>
+                    <p class="price">₹7,999</p>
+                    <button class="btn" onclick="addToCart('Sneakers')">Add to Cart</button>
+                </div>
+
+                <div class="product">
+                    <span class="discount-badge">20% OFF</span>
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=250&h=200&fit=crop" alt="New Product 2">
+                    <h3>Bluetooth Speaker</h3>
+                    <p class="price">₹4,999</p>
+                    <button class="btn" onclick="addToCart('Bluetooth Speaker')">Add to Cart</button>
+                </div>
+
+            </div>
+
+        </div>
+        
+    </section>
+
+    <section id="cta-banners">
+        <div class="container">
+            <div class="cta-grid">
+                <div class="cta-item">
+                    <div class="cta-icon">🚚</div>
+                    <h3>Free Shipping</h3>
+                    <p>Enjoy free delivery on orders above ₹999.</p>
+                    <a href="#products" class="btn">Shop Now</a>
+                </div>
+                <div class="cta-item">
+                    <div class="cta-icon">🎁</div>
+                    <h3>Exclusive Deals</h3>
+                    <p>Subscribe and get exciting offers & discounts.</p>
+                    <a href="#newsletter" class="btn">Subscribe</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2>📩 Subscribe to Our Newsletter</h2>
+                    <p>Stay updated with the latest fashion trends, exclusive offers, new arrivals and exciting discounts.</p>
+                    <div class="newsletter-benefits">
+                        <div class="benefit">🎁 Get Special Offers</div>
+                        <div class="benefit">⚡ Early Access to Sales</div>
+                        <div class="benefit">🛍️ New Product Alerts</div>
+                    </div>
+                </div>
+                <div class="newsletter-form">
+                    <h3>Get 20% OFF on Your First Order</h3>
+                    <form onsubmit="subscribe(event)">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe Now</button>
+                    </form>
+                    <small>🔒 We respect your privacy. No spam emails.</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOGIN SECTION -->
+
+    <section id="login">
+        <div class="login-container">
+            <div class="login-box">
+                <h2>Login to Nexivo</h2>
+                <p>Access your wishlist, cart and exclusive offers.</p>
+                <form id="loginForm">
+                    <div class="input-box">
+                        <i class="fa-regular fa-user"></i>
+                        <input type="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-box">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="login-btn">
+                        Login
+                    </button>
+                </form>
+                <div class="login-links">
+                    <a href="#">Forgot Password?</a>
+                    <p>Don't have an account?
+                        <a href="#">Sign Up</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- BRAND -->
+                <div class="footer-section">
+                    <h3>Nexivo</h3>
+                    <p>Your trusted online shopping destination for fashion, electronics, accessories and more.</p>
+                    <div class="social-icons">
+                        <a href="#">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- QUICK LINKS -->
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#hero">🏠 Home</a></li>
+                        <li><a href="#features">✨ Features</a></li>
+                        <li><a href="#products">🛍 Products</a></li>
+                        <li><a href="#newsletter">📩 Newsletter</a></li>
+                        <li><a href="#login">🔐 Login</a></li>
+                    </ul>
+                </div>
+
+                <!-- CUSTOMER SUPPORT -->
+                <div class="footer-section">
+                    <h4>Customer Support</h4>
+                    <ul>
+                        <li><a href="#">📦 Track Order</a></li>
+                        <li><a href="#">💳 Payment Options</a></li>
+                        <li><a href="#">↩ Return Policy</a></li>
+                        <li><a href="#">❓ Help Center</a></li>
+                    </ul>
+                </div>
+
+                <!-- CONTACT -->
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>📧 support@nexivo.com</p>
+                    <p>📞 +91 98765 43210</p>
+                    <p>📍 Chennai, India</p>
+                </div>
+            </div>
+
+            <!-- PAYMENT METHODS -->
+            <div class="payment-methods">
+                <h4>Secure Payments</h4>
+                <div class="payment-icons">
+                    <i class="fa-brands fa-cc-visa"></i>
+                    <i class="fa-brands fa-cc-mastercard"></i>
+                    <i class="fa-brands fa-google-pay"></i>
+                    <i class="fa-brands fa-paypal"></i>
+                </div>
+            </div>
+
+            <!-- COPYRIGHT -->
+            <div class="footer-bottom">
+                <p>© 2026 Nexivo. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <button id="topBtn">↑</button>
+</body>
+</html>
